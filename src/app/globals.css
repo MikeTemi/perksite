@@ -67,10 +67,10 @@ ul {
 
 /* ── TYPOGRAPHY ── */
 .h-display {
-  font-size: clamp(40px, 6vw, 76px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -2px;
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
 }
 
 .h-display em {
@@ -188,6 +188,14 @@ h2 em,
   padding-top: 12px;
   padding-bottom: 12px;
   line-height: 1;
+  box-shadow: 0 8px 32px rgba(95, 255, 159, 0.45);
+}
+
+.btn-primary:hover {
+  background: var(--green2);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px rgba(95, 255, 159, 0.55);
+  opacity: 1;
 }
 
 .btn-ghost {
@@ -287,4 +295,112 @@ h2 em,
   .footer-grid {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* Hero text link hover */
+.hero-text-link:hover {
+  color: var(--white) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-grid>div:last-child {
+    display: none;
+  }
+}
+
+/* Stats strip responsiveness */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/*Retention Band*/
+.retention-band-btn:hover {
+  background: rgba(4, 41, 64, 0.08) !important;
+}
+
+/*Calculator*/
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: #e0e8ed;
+  outline: none;
+  cursor: pointer;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--navy);
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .calc-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/*Pricing */
+.plan-cta-btn:hover {
+  opacity: 0.85 !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.pricing-cta-link:hover {
+  opacity: 0.7 !important;
+}
+
+/*BrandsTicker*/
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 24s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ghost-cta-btn:hover {
+  border-color: rgba(255, 255, 255, 0.6) !important;
 }
