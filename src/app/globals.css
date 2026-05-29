@@ -25,7 +25,7 @@
   --radius-lg: 24px;
   --radius-xl: 36px;
 
-  --max-w: 1100px;
+  --max-w: 1200px;
   --section-py: 120px;
 }
 
@@ -184,6 +184,10 @@ h2 em,
 .btn-primary {
   background: var(--green);
   color: var(--navy);
+  border-radius: 999px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  line-height: 1;
 }
 
 .btn-ghost {
@@ -193,6 +197,31 @@ h2 em,
 
 .btn-ghost-white {
   color: var(--white);
+}
+
+/* CTA button hover */
+.btn-primary:hover {
+  background: var(--green2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(95, 255, 159, 0.35);
+  opacity: 1;
+}
+
+/* Nav links */
+.nav-link {
+  position: relative;
+  font-size: 14px;
+  transition: color 0.15s;
+}
+
+.nav-link:hover {
+  color: var(--navy) !important;
+  opacity: 1 !important;
+}
+
+/* Footer links */
+.footer-link:hover {
+  color: var(--white) !important;
 }
 
 /* ── REVEAL ANIMATIONS ── */
@@ -237,5 +266,25 @@ h2 em,
 
   .lede {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .nav-ham-btn {
+    display: flex !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
   }
 }
