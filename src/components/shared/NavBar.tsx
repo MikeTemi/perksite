@@ -35,7 +35,7 @@ export default function NavBar() {
         }}>
             {/* Logo */}
             <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-                <img src="/images/weblogo.png" alt="Perk+" style={{ height: '28px' }} />
+                <img src="/images/perk+ blue w.png" alt="Perk+" style={{ height: '28px' }} />
             </Link>
 
             {/* Desktop links */}

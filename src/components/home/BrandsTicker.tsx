@@ -1,13 +1,15 @@
 export default function BrandsTicker() {
     const brands = [
-        'Maple St. Coffee',
         "Fisherman's Daughter",
         'Royal Fades',
+    ];
+
+    const extraBrands = [
+        "Maple St. Coffee",
         'Coco Hairdressers',
         'Brisbane Pub',
         'Melos Cafe',
     ];
-
     return (
         <section style={{
             background: '#061824',
