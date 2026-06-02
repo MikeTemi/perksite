@@ -42,7 +42,7 @@ export default function Footer() {
                     {/* Brand col */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         <img
-                            src="/images/perk+ blue w.png"
+                            src="/images/perk-blue.png"
                             alt="Perk+"
                             style={{ height: '32px', width: 'auto', objectFit: 'contain', objectPosition: 'left' }}
                         />
