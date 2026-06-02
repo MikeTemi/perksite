@@ -26,7 +26,7 @@ export default function RevealOnScroll({
                     obs.unobserve(el);
                 }
             },
-            { threshold: 0.08 }
+            { threshold: 0.01, rootMargin: '0px 0px -20px 0px' }
         );
 
         obs.observe(el);

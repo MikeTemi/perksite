@@ -1,3 +1,5 @@
+'use client'
+
 export default function BrandsTicker() {
     const brands = [
         "Fisherman's Daughter",
