@@ -435,3 +435,13 @@ h2 em,
   line-height: 1.1;
   letter-spacing: -1px;
 }
+
+.compare-toggle-btn:hover {
+  background: var(--navy) !important;
+  color: var(--white) !important;
+  border-color: var(--navy) !important;
+}
+
+nav {
+  z-index: 1000 !important;
+}

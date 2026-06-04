@@ -25,7 +25,7 @@ export default function PageHero({
           <p className="subline subline-light" style={{ marginBottom: '16px' }}>
             {subline}
           </p>
-          <h1 className="h-display h1-light" style={{ marginBottom: '20px' }}>
+          <h1 className="page-hero-display h1-light" style={{ marginBottom: '20px' }}>
             {headline}<br />
             <em>{headlineEm}</em>
           </h1>
