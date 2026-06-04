@@ -418,3 +418,20 @@ h2 em,
     grid-template-columns: 1fr !important;
   }
 }
+
+@media (max-width: 768px) {
+  .lessons-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.page-hero-display {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
