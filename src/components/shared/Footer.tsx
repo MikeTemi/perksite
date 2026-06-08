@@ -14,8 +14,6 @@ const customerLinks = [
 const companyLinks = [
     { label: 'About', href: '#' },
     { label: 'Contact', href: '#' },
-    { label: 'Terms', href: '#' },
-    { label: 'Privacy', href: '#' },
 ];
 
 export default function Footer() {
@@ -97,6 +95,8 @@ export default function Footer() {
 
                 {/* Bottom bar */}
                 <div style={{
+                    maxWidth: 'var(--max-w)',
+                    margin: '0 auto',
                     paddingTop: '20px',
                     borderTop: '1px solid rgba(255,255,255,0.06)',
                     display: 'flex',
@@ -108,6 +108,28 @@ export default function Footer() {
                     <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)' }}>
                         © 2026 Perk+ · Brisbane, AU
                     </span>
+
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        {[
+                            { label: 'Privacy Policy', href: '/privacy-policy' },
+                            { label: 'User Terms', href: '/user-terms' },
+                            { label: 'Merchant Terms', href: '/merchant-terms' },
+                        ].map(link => (
+                            <Link
+                                key={link.label}
+                                href={link.href}
+                                style={{
+                                    fontSize: '13px',
+                                    color: 'rgba(255,255,255,0.3)',
+                                    transition: 'color 0.15s',
+                                }}
+                                className="footer-link"
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
+
                     <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)' }}>
                         Built for the regulars · made in QLD
                     </span>
