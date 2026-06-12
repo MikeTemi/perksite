@@ -83,28 +83,22 @@ function SliderRow({
     fmt: (v: number) => string;
 }) {
     const pct = ((value - min) / (max - min)) * 100;
-    const trackBg = `linear-gradient(to right, #042940 0%, #5FFF9F ${pct}%, #dde5e0 ${pct}%)`;
+    const trackBg = `linear-gradient(to right, var(--green) 0%, var(--green) ${pct}%, var(--off) ${pct}%, var(--off) 100%)`;
 
     return (
-        <div style={{
-            display: 'flex', alignItems: 'center', gap: '12px',
-            padding: '8px 0', borderBottom: '0.5px solid #f0f2f0',
-        }}>
-            <label style={{ fontSize: '12.5px', color: '#4a5a50', width: '170px', flexShrink: 0 }}>
-                {label}
-            </label>
-            <input
-                type="range" min={min} max={max} step={step} value={value}
-                onChange={e => set(Number(e.target.value))}
-                className="calc-slider-new"
-                style={{ flex: 1, background: trackBg }}
-            />
-            <span style={{
-                fontSize: '12.5px', fontWeight: 600, color: 'var(--navy)',
-                width: '44px', textAlign: 'right', fontVariantNumeric: 'tabular-nums',
-            }}>
-                {fmtFn(value)}
-            </span>
+        <div className="field-group">
+            <label>{label}</label>
+            <div className="slider-row">
+                <input
+                    type="range" min={min} max={max} step={step} value={value}
+                    onChange={e => set(Number(e.target.value))}
+                    className="calc-slider-new"
+                    style={{ background: trackBg }}
+                />
+                <span className="num-pill">
+                    {fmtFn(value)}
+                </span>
+            </div>
         </div>
     );
 }
@@ -204,112 +198,73 @@ export default function Calculator() {
 
                 {/* Calculator card */}
                 <RevealOnScroll delay={2}>
-                    <div style={{
-                        background: '#fff', border: '0.5px solid #e2e8e4',
-                        borderRadius: '16px', overflow: 'hidden',
-                        boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
-                    }}>
+                    <div className="calc" style={{ boxShadow: 'var(--shadow-card)', border: '1px solid var(--line)' }}>
 
                         {/* Header */}
-                        <div style={{
-                            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                            padding: '16px 20px', borderBottom: '0.5px solid #eef1ee',
-                        }}>
+                        <div className="calc-head">
                             <div>
-                                <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--navy)' }}>
-                                    Your regulars · annual value
-                                </h3>
-                                <p style={{ fontSize: '11.5px', color: '#7a8f82', marginTop: '2px' }}>
-                                    Adjust to match your business
-                                </p>
+                                <h3>Your regulars · annual value</h3>
+                                <p>Adjust to match your business</p>
                             </div>
-                            <span style={{
-                                fontSize: '11px', fontWeight: 500, color: '#0f6e56',
-                                background: '#e8f8f0', border: '0.5px solid #5DCAA5',
-                                padding: '4px 10px', borderRadius: '20px',
-                            }}>Live</span>
+                            <span className="calc-live">Live</span>
                         </div>
 
-                        <div style={{ padding: '10px 20px 8px' }}>
+                        <div className="calc-inputs">
 
                             {/* Trade pills */}
-                            <p style={{
-                                fontSize: '9.5px', fontWeight: 600, letterSpacing: '0.1em',
-                                textTransform: 'uppercase', color: '#7a8f82', marginBottom: '5px',
-                            }}>Your Trade</p>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
-                                {industries.map(item => (
-                                    <button
-                                        key={item.key}
-                                        onClick={() => handleIndustry(item.key as Industry)}
-                                        style={{
-                                            display: 'flex', alignItems: 'center', gap: '4px',
-                                            padding: '4px 12px', borderRadius: '20px',
-                                            fontSize: '12px', cursor: 'pointer',
-                                            background: ind === item.key ? '#042940' : '#fff',
-                                            color: ind === item.key ? '#fff' : '#1a2a1e',
-                                            border: ind === item.key ? '0.5px solid #042940' : '0.5px solid #dde5e0',
-                                            transition: 'all 0.15s', fontFamily: 'inherit',
-                                        }}
-                                    >
-                                        {ind === item.key && (
-                                            <span style={{
-                                                width: '6px', height: '6px', borderRadius: '50%',
-                                                background: '#5FFF9F', flexShrink: 0,
-                                            }} />
-                                        )}
-                                        {item.label}
-                                    </button>
-                                ))}
+                            <div className="field-group">
+                                <label>Your Trade</label>
+                                <div className="ind-chips">
+                                    {industries.map(item => (
+                                        <button
+                                            key={item.key}
+                                            type="button"
+                                            onClick={() => handleIndustry(item.key as Industry)}
+                                            className={`ind-chip ${ind === item.key ? 'on' : ''}`}
+                                        >
+                                            {ind === item.key && (
+                                                <span style={{
+                                                    width: '6px',
+                                                    height: '6px',
+                                                    borderRadius: '50%',
+                                                    background: 'var(--green)',
+                                                    flexShrink: 0,
+                                                }} />
+                                            )}
+                                            {item.key === 'cafe' ? '☕ ' : item.key === 'hair' ? '✂ ' : item.key === 'retail' ? '🛍 ' : item.key === 'restaurant' ? '🍽 ' : '🌿 '}
+                                            {item.label}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Sliders */}
-                            <div style={{ marginBottom: '16px' }}>
-                                <SliderRow label="Avg spend per visit" value={spend} set={setSpend} min={5} max={300} step={5} fmt={v => `$${v}`} />
-                                <SliderRow label="Approx. regulars" value={regs} set={setRegs} min={5} max={500} step={5} fmt={v => `${v}`} />
-                                <SliderRow label="Visits per year (each regular)" value={visits} set={setVisits} min={1} max={52} step={1} fmt={v => `${v}`} />
-                                <SliderRow label="Stamps to get reward" value={stamps} set={setStamps} min={5} max={20} step={1} fmt={v => `${v}`} />
-                            </div>
+                            <SliderRow label="Avg spend per visit" value={spend} set={setSpend} min={5} max={300} step={5} fmt={v => `$${v}`} />
+                            <SliderRow label="Approx. regulars" value={regs} set={setRegs} min={5} max={500} step={5} fmt={v => `${v}`} />
+                            <SliderRow label="Visits per year (each regular)" value={visits} set={setVisits} min={1} max={52} step={1} fmt={v => `${v}`} />
+                            <SliderRow label="Stamps to get reward" value={stamps} set={setStamps} min={5} max={20} step={1} fmt={v => `${v}`} />
 
                             {/* Reward strength */}
-                            <div style={{ marginBottom: '10px' }}>
-                                <p style={{
-                                    fontSize: '9.5px', fontWeight: 600, letterSpacing: '0.1em',
-                                    textTransform: 'uppercase', color: '#7a8f82', marginBottom: '5px',
-                                }}>Reward Strength</p>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px' }}>
+                            <div className="field-group">
+                                <label>Reward Strength</label>
+                                <div className="rew-row">
                                     {(Object.entries(rewards) as [Reward, typeof rewards[Reward]][]).map(([key, r]) => (
                                         <button
                                             key={key}
+                                            type="button"
                                             onClick={() => setReward(key)}
-                                            style={{
-                                                padding: '8px', borderRadius: '8px', textAlign: 'center',
-                                                cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.15s',
-                                                background: reward === key ? '#042940' : '#fff',
-                                                color: reward === key ? '#fff' : '#1a2a1e',
-                                                border: reward === key ? '0.5px solid #042940' : '0.5px solid #dde5e0',
-                                            }}
+                                            className={`rew-opt ${reward === key ? 'on' : ''}`}
                                         >
-                                            <span style={{ fontSize: '12.5px', fontWeight: 500, display: 'block' }}>
-                                                {r.label}
-                                            </span>
-                                            <span style={{
-                                                fontSize: '10px', display: 'block', marginTop: '2px',
-                                                color: reward === key ? 'rgba(255,255,255,0.55)' : '#7a8f82',
-                                            }}>
-                                                {r.sub}
-                                            </span>
+                                            <span className="lbl">{r.label}</span>
+                                            <span className="sub">{r.sub}</span>
                                         </button>
                                     ))}
                                 </div>
                             </div>
 
                             {/* Plan selector */}
-                            <div style={{ marginBottom: '8px' }}>
-                                <p style={{
-                                    fontSize: '9.5px', fontWeight: 600, letterSpacing: '0.1em',
-                                    textTransform: 'uppercase', color: '#7a8f82', marginBottom: '5px',
-                                }}>Perk+ Plan</p>
+                            <div className="field-group">
+                                <label>Perk+ Plan</label>
 
                                 {/* Billing toggle */}
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
@@ -317,7 +272,7 @@ export default function Calculator() {
                                         onClick={() => setAnnual(!annual)}
                                         style={{
                                             width: '36px', height: '20px', borderRadius: '20px',
-                                            background: annual ? '#042940' : '#dde5e0',
+                                            background: annual ? 'var(--navy)' : 'var(--g5)',
                                             border: 'none', cursor: 'pointer',
                                             position: 'relative', transition: 'background 0.2s', flexShrink: 0,
                                             padding: 0,
@@ -331,17 +286,17 @@ export default function Calculator() {
                                             boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
                                         }} />
                                     </button>
-                                    <span style={{ fontSize: '12px', color: '#4a5a50' }}>
+                                    <span style={{ fontSize: '12px', color: 'var(--g1)' }}>
                                         {annual
-                                            ? <><strong style={{ color: '#042940' }}>Annual</strong></>
+                                            ? <><strong style={{ color: 'var(--navy)' }}>Annual</strong></>
                                             : 'Monthly'
                                         }
                                     </span>
                                     {annual && (
                                         <span style={{
                                             fontSize: '9.5px', fontWeight: 600,
-                                            background: '#e8f8f0', color: '#0f6e56',
-                                            border: '0.5px solid #5dcaa5',
+                                            background: 'var(--green-tint)', color: 'var(--navy)',
+                                            border: '0.5px solid var(--green)',
                                             padding: '2px 7px', borderRadius: '20px',
                                         }}>
                                             Save ~17%
@@ -358,9 +313,9 @@ export default function Calculator() {
                                                 position: 'relative', borderRadius: '8px',
                                                 padding: '7px 8px', cursor: 'pointer',
                                                 border: key === 'growth'
-                                                    ? `0.5px solid ${plan === key ? '#5FFF9F' : '#5FFF9F'}`
-                                                    : plan === key ? '0.5px solid #042940' : '0.5px solid #dde5e0',
-                                                background: plan === key ? '#042940' : '#fff',
+                                                    ? `0.5px solid ${plan === key ? 'var(--green)' : 'var(--green)'}`
+                                                    : plan === key ? '0.5px solid var(--navy)' : '0.5px solid var(--g5)',
+                                                background: plan === key ? 'var(--navy)' : 'var(--white)',
                                                 transition: 'all 0.15s',
                                                 marginTop: key === 'growth' ? '10px' : '0',
                                             }}
@@ -370,9 +325,9 @@ export default function Calculator() {
                                                     position: 'absolute', top: '-11px', left: '50%',
                                                     transform: 'translateX(-50%)',
                                                     fontSize: '9px', fontWeight: 600,
-                                                    background: plan === key ? '#5FFF9F' : '#042940',
-                                                    color: plan === key ? '#042940' : '#5FFF9F',
-                                                    border: '0.5px solid #5FFF9F',
+                                                    background: plan === key ? 'var(--green)' : 'var(--navy)',
+                                                    color: plan === key ? 'var(--navy)' : 'var(--green)',
+                                                    border: '0.5px solid var(--green)',
                                                     padding: '2px 8px', borderRadius: '20px',
                                                     whiteSpace: 'nowrap',
                                                 }}>★ Recommended</span>
@@ -380,14 +335,14 @@ export default function Calculator() {
                                             <span style={{
                                                 display: 'inline-block', fontSize: '9px', fontWeight: 500,
                                                 padding: '1px 6px', borderRadius: '20px', marginBottom: '3px',
-                                                background: plan === key ? 'rgba(95,255,159,0.15)' : '#e8f8f0',
-                                                color: plan === key ? '#5FFF9F' : '#0f6e56',
-                                                border: plan === key ? '0.5px solid rgba(95,255,159,0.3)' : '0.5px solid #5dcaa5',
+                                                background: plan === key ? 'rgba(95,255,159,0.15)' : 'var(--green-tint)',
+                                                color: plan === key ? 'var(--green)' : 'var(--navy)',
+                                                border: plan === key ? '0.5px solid rgba(95,255,159,0.3)' : '0.5px solid var(--green)',
                                             }}>
                                                 {planLiftLabel(key)}
                                             </span>
                                             <span style={{
-                                                fontSize: '10px', color: plan === key ? 'rgba(255,255,255,0.5)' : '#7a8f82',
+                                                fontSize: '10px', color: plan === key ? 'rgba(255,255,255,0.5)' : 'var(--g2)',
                                                 display: 'block', marginBottom: '1px',
                                             }}>
                                                 {key.charAt(0).toUpperCase() + key.slice(1)}
@@ -395,7 +350,7 @@ export default function Calculator() {
                                             {annual && p.monthly > 0 && (
                                                 <div style={{
                                                     fontSize: '10px',
-                                                    color: plan === key ? 'rgba(255,255,255,0.35)' : '#7a8f82',
+                                                    color: plan === key ? 'rgba(255,255,255,0.35)' : 'var(--g2)',
                                                     textDecoration: 'line-through',
                                                     marginBottom: '1px',
                                                 }}>
@@ -404,19 +359,20 @@ export default function Calculator() {
                                             )}
                                             <div style={{
                                                 fontSize: '18px', fontWeight: 700,
-                                                color: '#5FFF9F', lineHeight: 1,
+                                                color: plan === key ? 'var(--green)' : 'var(--navy)',
+                                                lineHeight: 1,
                                             }}>
                                                 {planPrice(key)}
                                                 <span style={{
                                                     fontSize: '10px', fontWeight: 400,
-                                                    color: plan === key ? 'rgba(255,255,255,0.4)' : '#7a8f82',
+                                                    color: plan === key ? 'rgba(255,255,255,0.4)' : 'var(--g2)',
                                                     marginLeft: '1px',
                                                 }}>/mo</span>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
-                                <p style={{ fontSize: '11px', color: '#7a8f82', marginTop: '5px' }}>
+                                <p style={{ fontSize: '11px', color: 'var(--g2)', marginTop: '5px', margin: '5px 0 0' }}>
                                     Higher plans unlock push, SMS &amp; email, driving greater visit lift.
                                 </p>
                             </div>
@@ -424,33 +380,22 @@ export default function Calculator() {
                         </div>
 
                         {/* Result box */}
-                        <div style={{
-                            background: '#042940', margin: '0 16px 16px',
-                            borderRadius: '12px', padding: '16px 20px', color: '#fff',
-                        }}>
-                            <p style={{
-                                fontSize: '9.5px', fontWeight: 600, letterSpacing: '0.1em',
-                                textTransform: 'uppercase', color: '#5FFF9F', marginBottom: '4px',
-                            }}>
+                        <div className="calc-result">
+                            <div className="calc-result-lbl">
                                 Estimated Net Return · Year 1
-                            </p>
-                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '4px' }}>
-                                <span style={{
-                                    fontSize: '2.6rem', fontWeight: 700, color: '#5FFF9F',
-                                    lineHeight: 1, fontVariantNumeric: 'tabular-nums',
-                                }}>
-                                    ${animatedNet.toLocaleString('en-AU')}
-                                </span>
-                                <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)' }}>/year</span>
                             </div>
-                            <p style={{ fontSize: '11.5px', color: 'rgba(255,255,255,0.55)', margin: '4px 0 12px', lineHeight: 1.5 }}>
-                                Based on <strong style={{ color: '#fff' }}>{regs} regulars</strong> visiting{' '}
-                                <strong style={{ color: '#fff' }}>{effectiveLiftPct}% more often</strong>,
-                                using <strong style={{ color: '#fff' }}>{Math.round(margin * 100)}%</strong> margin
+                            <div className="calc-result-amt">
+                                ${animatedNet.toLocaleString('en-AU')}
+                                <span className="yr">/year</span>
+                            </div>
+                            <p className="calc-result-desc">
+                                Based on <strong>{regs} regulars</strong> visiting{' '}
+                                <strong>{effectiveLiftPct}% more often</strong>,
+                                using <strong>{Math.round(margin * 100)}%</strong> margin
                                 for {tradeDefaults[ind].label}.
                             </p>
 
-                            <div style={{ borderTop: '0.5px solid rgba(255,255,255,0.1)', paddingTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <div className="calc-bd">
                                 {[
                                     { label: 'Effective visit lift', val: `+${effectiveLiftPct}%`, cls: 'pos' },
                                     { label: 'Revenue with loyalty', val: fmt(loyaltyRevenue), cls: 'pos' },
@@ -459,34 +404,24 @@ export default function Calculator() {
                                     { label: 'Cost of rewards given', val: `−${fmt(totalRewardCost)}`, cls: 'neg' },
                                     ...(subCost > 0 ? [{ label: `Subscription (${annual ? 'annual' : 'monthly ×12'})`, val: `−${fmt(subCost)}`, cls: 'neg' }] : []),
                                 ].map(row => (
-                                    <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', color: 'rgba(255,255,255,0.55)' }}>
+                                    <div key={row.label} className="calc-bd-row">
                                         <span>{row.label}</span>
-                                        <span style={{
-                                            fontWeight: 500,
-                                            color: row.cls === 'neg' ? '#e87575' : 'rgba(255,255,255,0.8)',
+                                        <strong style={{
+                                            color: row.cls === 'neg' ? '#c84040' : 'var(--navy)',
                                         }}>
                                             {row.val}
-                                        </span>
+                                        </strong>
                                     </div>
                                 ))}
 
                                 {/* Net total */}
-                                <div style={{
-                                    display: 'flex', justifyContent: 'space-between',
-                                    borderTop: '0.5px solid rgba(255,255,255,0.15)',
-                                    paddingTop: '8px', marginTop: '4px',
-                                    fontSize: '13px', fontWeight: 600, color: '#fff',
-                                }}>
-                                    <span>Net additional revenue</span>
-                                    <span style={{ color: '#5FFF9F' }}>{fmt(net)}</span>
+                                <div className="calc-bd-row net">
+                                    <span className="lbl">Net additional revenue</span>
+                                    <strong style={{ color: 'var(--navy)' }}>{fmt(net)}</strong>
                                 </div>
                             </div>
 
-                            <p style={{
-                                fontSize: '10.5px', color: 'rgba(255,255,255,0.3)',
-                                marginTop: '12px', paddingTop: '12px',
-                                borderTop: '0.5px solid rgba(255,255,255,0.08)', lineHeight: 1.5,
-                            }}>
+                            <p className="calc-disclaimer">
                                 {rewards[reward].costFn === rewards.pct10.costFn
                                     ? `After ${stamps} visits, the customer gets 10% off their ${stamps}th visit.`
                                     : rewards[reward].costFn === rewards.pct50.costFn
