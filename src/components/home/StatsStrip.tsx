@@ -29,47 +29,16 @@ const stats = [
 
 export default function StatsStrip() {
     return (
-        <section style={{
-            background: '#050e15',
-            borderTop: '1px solid rgba(255,255,255,0.07)',
-            borderBottom: '1px solid rgba(255,255,255,0.07)',
-            padding: '20px 40px',
-        }}>
-            <div style={{
-                maxWidth: 'var(--max-w)',
-                margin: '0 auto',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-            }} className="stats-grid">
+        <section className="stats">
+            <div className="stats-inner">
                 {stats.map((stat, i) => (
-                    <RevealOnScroll key={stat.num} delay={i as 0 | 1 | 2 | 3}>
-                        <div style={{
-                            padding: '8px 32px 8px',
-                            borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                            paddingLeft: i === 0 ? '0' : '32px',
-                        }}>
-                            <div style={{
-                                fontSize: 'clamp(24px, 2.5vw, 34px)',
-                                fontWeight: 700,
-                                color: 'var(--green)',
-                                letterSpacing: '-1px',
-                                lineHeight: 1,
-                                marginBottom: '12px',
-                            }}>
-                                {stat.num}
-                            </div>
-                            <p style={{
-                                fontSize: '13px',
-                                lineHeight: 1.65,
-                                color: 'rgba(255,255,255,0.5)',
-                            }}>
-                                {stat.label}
-                                <strong style={{ color: 'var(--white)', fontWeight: 700 }}>
-                                    {stat.bold}
-                                </strong>
-                                {stat.end}
-                            </p>
-                        </div>
+                    <RevealOnScroll key={stat.num} delay={i as 0 | 1 | 2 | 3} className="stat-cell">
+                        <div className="stat-num">{stat.num}</div>
+                        <p className="stat-label">
+                            {stat.label}
+                            {stat.bold && <strong>{stat.bold}</strong>}
+                            {stat.end}
+                        </p>
                     </RevealOnScroll>
                 ))}
             </div>
