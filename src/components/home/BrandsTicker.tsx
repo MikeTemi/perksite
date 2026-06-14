@@ -6,57 +6,30 @@ export default function BrandsTicker() {
         'Royal Fades',
     ];
 
-    const extraBrands = [
+    /* const extraBrands = [
         "Maple St. Coffee",
         'Coco Hairdressers',
         'Brisbane Pub',
         'Melos Cafe',
+    ]; */
+
+    // Combine to match the HTML order exactly:
+    const displayBrands = [
+        brands[0],       // Fisherman's Daughter
+        brands[1],       // Royal Fades
     ];
+
     return (
-        <section style={{
-            background: '#061824',
-            borderTop: '1px solid rgba(255,255,255,0.06)',
-            padding: '32px 40px',
-        }}>
-            <div style={{
-                maxWidth: 'var(--max-w)',
-                margin: '0 auto',
-            }}>
-                <p style={{
-                    fontSize: '13px',
-                    color: 'var(--green)',
-                    marginBottom: '20px',
-                    fontWeight: 500,
-                }}>
-                    Already running on{' '}
-                    <strong>local counters around Brisbane</strong>{' '}
-                    — cafés, barbers, bakeries, pubs.
+        <section className="brands">
+            <div className="brands-inner">
+                <p className="brands-label">
+                    Already running on <strong>local counters around Brisbane</strong> — cafés, barbers, bakeries, pubs.
                 </p>
 
-                <div style={{
-                    display: 'flex',
-                    gap: '0',
-                    flexWrap: 'wrap',
-                }}>
-                    {brands.map((brand, i) => (
-                        <span key={i} style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            padding: '4px 32px 4px 0',
-                            fontSize: '15px',
-                            fontWeight: 600,
-                            color: 'var(--green)',
-                            whiteSpace: 'nowrap',
-                        }}>
-                            <span style={{
-                                width: '7px',
-                                height: '7px',
-                                borderRadius: '50%',
-                                background: 'var(--green)',
-                                display: 'inline-block',
-                                flexShrink: 0,
-                            }} />
+                <div className="brands-row">
+                    {displayBrands.map((brand, i) => (
+                        <span key={i} className="brand-chip">
+                            <span className="dot"></span>
                             {brand}
                         </span>
                     ))}

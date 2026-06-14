@@ -3,195 +3,81 @@ import RevealOnScroll from '@/components/shared/RevealOnScroll';
 
 const plans = [
     {
-        label: 'FREE FOREVER',
+        label: 'Free forever',
         price: '$0',
         per: '/mo',
         name: 'Free',
         summary: '1 stamp card, 1 offer, 1 location. View-only analytics, customer profiles.',
-        cta: 'Select Free →',
-        ctaHref: '#',
+        cta: 'Select Free',
+        ctaHref: '/pricing',
         featured: false,
     },
     {
-        label: 'FOR SMALL BUSINESS',
+        label: 'For small business',
         price: '$9.99',
         per: '/mo',
         name: 'Starter',
         summary: '3 offers, analytics summary, basic customer list, communications.',
-        cta: 'Select Starter →',
-        ctaHref: '#',
+        cta: 'Select Starter',
+        ctaHref: '/pricing',
         featured: false,
     },
     {
-        label: '★ RECOMMENDED',
+        label: '★ Recommended',
         price: '$19.99',
         per: '/mo',
         name: 'Growth',
         summary: '10 stamp cards, 20 offers, 1–3 locations. Full analytics, Push/SMS/Email.',
-        cta: 'Select Growth →',
-        ctaHref: '#',
+        cta: 'Select Growth',
+        ctaHref: '/pricing',
         featured: true,
     },
     {
-        label: 'MULTI-LOCATION',
+        label: 'Multi-location',
         price: 'Contact us',
         per: '',
         name: 'Custom',
         summary: 'Unlimited cards, locations & offers. Advanced analytics, priority support.',
-        cta: 'Contact us →',
-        ctaHref: '#',
+        cta: 'Contact us',
+        ctaHref: '/pricing',
         featured: false,
     },
 ];
 
 export default function PricingSection() {
     return (
-        <section style={{
-            background: '#fff',
-            padding: '80px 40px',
-        }}>
-            <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
+        <section className="pricing-teaser">
+            <div className="pricing-teaser-inner">
 
                 {/* Header */}
                 <RevealOnScroll>
-                    <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-                        <p style={{
-                            fontSize: '13px',
-                            color: '#8aa0b0',
-                            marginBottom: '40px',
-                            letterSpacing: '0.3px',
-                        }}>Pricing</p>
-                        <h2 style={{
-                            fontSize: 'clamp(32px, 4vw, 56px)',
-                            fontWeight: 800,
-                            color: 'var(--navy)',
-                            lineHeight: 1.1,
-                            letterSpacing: '-1.5px',
-                        }}>
-                            Start free.{' '}
-                            <em style={{
-                                fontStyle: 'italic',
-                                color: 'var(--navy)',
-                                fontWeight: 800,
-                            }}>
-                                Upgrade when the<br />numbers make you.
-                            </em>
+                    <div className="pt-head">
+                        <p className="subline">Pricing</p>
+                        <h2 className="h1">
+                            Start free. Upgrade <em>when the numbers make you.</em>
                         </h2>
                     </div>
                 </RevealOnScroll>
 
-                {/* Cards */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gap: '16px',
-                    alignItems: 'stretch',
-                }} className="pricing-grid">
+                {/* Cards Grid */}
+                <div className="pt-grid">
                     {plans.map((plan, i) => (
                         <RevealOnScroll key={plan.name} delay={i as 0 | 1 | 2 | 3}>
-                            <div style={{
-                                background: plan.featured ? 'var(--navy)' : '#fff',
-                                border: plan.featured
-                                    ? 'none'
-                                    : '1px solid #e8edf2',
-                                borderRadius: '16px',
-                                padding: '24px 20px',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '0',
-                                height: '100%',
-                                boxShadow: plan.featured
-                                    ? '0 8px 40px rgba(4,41,64,0.2)'
-                                    : '0 2px 12px rgba(0,0,0,0.04)',
-                            }}>
-
-                                {/* Label */}
-                                <p style={{
-                                    fontSize: '11px',
-                                    fontWeight: 700,
-                                    letterSpacing: '1.5px',
-                                    color: plan.featured ? 'var(--green)' : '#8aa0b0',
-                                    marginBottom: '12px',
-                                }}>
-                                    {plan.label}
-                                </p>
-
-                                {/* Price */}
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'baseline',
-                                    gap: '2px',
-                                    marginBottom: '4px',
-                                }}>
-                                    <span style={{
-                                        fontSize: plan.price === 'Contact us' ? '24px' : '32px',
-                                        fontWeight: 800,
-                                        color: plan.featured ? 'var(--green)' : 'var(--navy)',
-                                        letterSpacing: '-1px',
-                                        lineHeight: 1,
-                                    }}>
+                            <Link href={plan.ctaHref} className={`pt-card ${plan.featured ? 'featured' : ''}`}>
+                                <div className="pt-tag">{plan.label}</div>
+                                <div className="pt-price">
+                                    <span className="num" style={plan.price === 'Contact us' ? { fontSize: '22px' } : undefined}>
                                         {plan.price}
                                     </span>
-                                    {plan.per && (
-                                        <span style={{
-                                            fontSize: '13px',
-                                            color: plan.featured ? 'rgba(255,255,255,0.5)' : '#8aa0b0',
-                                        }}>
-                                            {plan.per}
-                                        </span>
-                                    )}
+                                    {plan.per && <span className="per">{plan.per}</span>}
                                 </div>
-
-                                {/* Plan name */}
-                                <p style={{
-                                    fontSize: '18px',
-                                    fontWeight: 800,
-                                    color: plan.featured ? 'var(--white)' : 'var(--navy)',
-                                    marginBottom: '12px',
-                                }}>
-                                    {plan.name}
-                                </p>
-
-                                {/* Summary */}
-                                <p style={{
-                                    fontSize: '14px',
-                                    lineHeight: 1.6,
-                                    color: plan.featured ? 'rgba(255,255,255,0.6)' : '#6b8fa8',
-                                    marginBottom: '20px',
-                                    flex: 1,
-                                }}>
-                                    {plan.summary}
-                                </p>
-
-                                {/* CTA */}
-                                <Link
-                                    href={plan.ctaHref}
-                                    style={{
-                                        fontSize: '14px',
-                                        fontWeight: 700,
-                                        color: plan.featured ? 'var(--green)' : 'var(--navy)',
-                                        textDecoration: 'none',
-                                        transition: 'opacity 0.15s',
-                                    }}
-                                    className="pricing-cta-link"
-                                >
-                                    {plan.cta}
-                                </Link>
-
-                            </div>
+                                <h3>{plan.name}</h3>
+                                <p>{plan.summary}</p>
+                                <span className="pt-link">{plan.cta}</span>
+                            </Link>
                         </RevealOnScroll>
                     ))}
                 </div>
-
-                {/* Fine print */}
-                <p style={{
-                    textAlign: 'center',
-                    marginTop: '32px',
-                    fontSize: '13px',
-                    color: '#8aa0b0',
-                }}>
-                    Switch plans anytime. No lock-in contracts. Customers always use Perk+ for free.
-                </p>
 
             </div>
         </section>

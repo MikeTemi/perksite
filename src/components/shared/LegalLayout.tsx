@@ -9,11 +9,12 @@ interface Section {
 interface LegalLayoutProps {
     title: string;
     lastUpdated: string;
-    intro?: string;
+    intro?: React.ReactNode;
     sections: Section[];
     contactTitle: string;
     contactBody: string;
 }
+
 
 export default function LegalLayout({
     title,
@@ -61,7 +62,7 @@ export default function LegalLayout({
 
                     {/* Intro */}
                     {intro && (
-                        <p style={{
+                        <div style={{
                             fontSize: '15px',
                             lineHeight: 1.8,
                             color: '#4a6070',
@@ -70,7 +71,7 @@ export default function LegalLayout({
                             borderBottom: '1px solid #e8edf2',
                         }}>
                             {intro}
-                        </p>
+                        </div>
                     )}
 
                     {/* Sections */}

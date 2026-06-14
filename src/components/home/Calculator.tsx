@@ -187,13 +187,13 @@ export default function Calculator() {
                     </h2>
                     <p style={{ fontSize: '15px', lineHeight: 1.7, color: '#4a6070', marginBottom: '18px' }}>
                         Move the sliders. See exactly what a loyalty program could add to your annual
-                        revenue — <strong>after</strong> the cost of every reward you give away.
+                        revenue <strong>after</strong> the cost of every reward you give away.
                     </p>
                     <p style={{ fontSize: '15px', lineHeight: 1.7, color: '#4a6070', marginBottom: '28px' }}>
-                        Most local businesses are surprised by the answer. The reward isn't a cost —
+                        Most local businesses are surprised by the answer. The reward isn't a cost,
                         it's what earns the next visit.
                     </p>
-                    <Link href="/pricing" className="btn btn-md btn-primary">Start free →</Link>
+                    <Link href="/pricing" className="btn btn-md btn-primary">Start free</Link>
                 </RevealOnScroll>
 
                 {/* Calculator card */}
