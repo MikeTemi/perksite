@@ -6,7 +6,7 @@ export default function RetentionBand() {
             <div className="retention-band-inner">
                 <p className="rb-copy">
                     <strong>Marketing is loud. Retention is quiet.</strong>{' '}
-                    <span className="rb-dim">Most local businesses get this backwards — and pay for it.</span>
+                    <span className="rb-dim">Most local businesses get this backwards, and pay for it.</span>
                 </p>
 
                 <Link href="/retention-101" className="rb-link">

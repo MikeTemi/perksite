@@ -1,7 +1,7 @@
 import LegalLayout from '@/components/shared/LegalLayout';
 
 export const metadata = {
-    title: 'Privacy Policy — Perk+',
+    title: 'Privacy Policy, Perk+',
     description: 'How Perk+ collects, uses, and protects your personal information.',
 };
 

@@ -13,7 +13,7 @@ const customerLinks = [
 
 const companyLinks = [
     { label: 'About', href: '#' },
-    { label: 'Contact', href: '#' },
+    { label: 'Contact', href: '/contact' },
 ];
 
 export default function Footer() {

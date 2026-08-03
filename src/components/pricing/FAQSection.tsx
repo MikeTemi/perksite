@@ -10,11 +10,11 @@ const faqs = [
     },
     {
         q: 'Can I switch plans anytime?',
-        a: 'Yes — upgrade or downgrade whenever. No contracts, no lock-in. Your customer data, stamps and offers carry across plans untouched.',
+        a: 'Yes, upgrade or downgrade whenever. No contracts, no lock-in. Your customer data, stamps and offers carry across plans untouched.',
     },
     {
         q: 'What happens to my data if I downgrade?',
-        a: 'Nothing is deleted. Features above your new plan\'s limit are paused, not lost — for example, if you go from Growth to Free, your extra stamp cards stay in drafts and can be republished the moment you upgrade again.',
+        a: 'Nothing is deleted. Features above your new plan\'s limit are paused, not lost, for example, if you go from Growth to Free, your extra stamp cards stay in drafts and can be republished the moment you upgrade again.',
     },
     {
         q: 'Do my customers pay anything?',
@@ -22,7 +22,7 @@ const faqs = [
     },
     {
         q: 'Is there a free trial on paid plans?',
-        a: 'Yes — every paid plan starts with a 30-day free trial. No credit card required to start. At day 30 you choose whether to continue or drop back to Free.',
+        a: 'Yes, every paid plan starts with a 30-day free trial. No credit card required to start. At day 30 you choose whether to continue or drop back to Free.',
     },
     {
         q: 'What\'s included in Custom?',

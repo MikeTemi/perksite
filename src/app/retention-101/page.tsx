@@ -23,7 +23,7 @@ export default function Retention101Page() {
             <PageCTA
                 headline="Know your regulars."
                 headlineEm="Before they slip away."
-                body="Open the calculator and run the maths against your own numbers — then start free."
+                body="Open the calculator and run the maths against your own numbers, then start free."
                 primaryLabel="Open the calculator →"
                 primaryHref="/#calc"
                 secondaryLabel="See pricing"

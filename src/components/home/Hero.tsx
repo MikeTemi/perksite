@@ -38,7 +38,7 @@ export default function Hero() {
         <section className="hero">
             <div className="hero-inner">
 
-                {/* Left — copy */}
+                {/* Left, copy */}
                 <RevealOnScroll>
                     <p className="subline subline-light">
                         For local business owners · Your partner in rewards &amp; benefits
@@ -72,7 +72,7 @@ export default function Hero() {
 
                     {/* Trust badges */}
                     <div className="hero-trust">
-                        {['Free tier — no card', '30-day trial on paid', 'Cancel any time'].map(badge => (
+                        {['Free tier, no card', '30-day trial on paid', 'Cancel any time'].map(badge => (
                             <span key={badge}>
                                 <span className="check">✓</span>
                                 {badge}
@@ -81,7 +81,7 @@ export default function Hero() {
                     </div>
                 </RevealOnScroll>
 
-                {/* Right — phone mockup */}
+                {/* Right, phone mockup */}
                 <RevealOnScroll delay={2}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <div className="video-phone">

@@ -39,7 +39,7 @@ const plans = [
         name: 'Custom',
         summary: 'Unlimited cards, locations & offers. Advanced analytics, priority support.',
         cta: 'Contact us',
-        ctaHref: '/pricing',
+        ctaHref: '/contact',
         featured: false,
     },
 ];

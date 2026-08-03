@@ -6,7 +6,7 @@ import BrandsTicker from '@/components/home/BrandsTicker';
 import PageCTA from '@/components/shared/PageCTA';
 
 export const metadata = {
-    title: 'Perk+ — How it works',
+    title: 'Perk+, How it works',
     description: 'Inside the Perk+ portal: stamp cards, dashboard, members, discovery.',
 };
 

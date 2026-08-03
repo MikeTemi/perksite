@@ -1,7 +1,7 @@
 import LegalLayout from '@/components/shared/LegalLayout';
 
 export const metadata = {
-    title: 'User Terms — Perk+',
+    title: 'User Terms, Perk+',
     description: 'Terms and conditions for Perk+ customer app users.',
 };
 

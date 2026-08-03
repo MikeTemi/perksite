@@ -1,7 +1,7 @@
 import LegalLayout from '@/components/shared/LegalLayout';
 
 export const metadata = {
-    title: 'Merchant Terms — Perk+',
+    title: 'Merchant Terms, Perk+',
     description: 'Terms and conditions for Perk+ business portal merchants.',
 };
 

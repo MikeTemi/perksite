@@ -16,7 +16,7 @@ export default function DashboardPreview() {
                             One screen. <em>The four numbers that matter.</em>
                         </h2>
                         <p className="lede">
-                            Stamps, redemptions, joiners, total customers — all live, all
+                            Stamps, redemptions, joiners, total customers, all live, all
                             on every plan. The Free tier shows the KPI counts; paid plans
                             unlock the chart, filters and activity feed.
                         </p>

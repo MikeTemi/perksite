@@ -4,10 +4,10 @@ import Link from 'next/link';
 import RevealOnScroll from '@/components/shared/RevealOnScroll';
 
 const tiles = [
-    { num: '5 km', title: 'Discovery radius', body: 'Customers see every Perk+ business within walking, riding or short-drive distance — sorted by who\'s closest.' },
-    { num: '0¢', title: 'Cost per impression', body: 'You don\'t bid for slots. The map is alphabetical-by-distance — every paid plan gets the same shelf space.' },
+    { num: '5 km', title: 'Discovery radius', body: 'Customers see every Perk+ business within walking, riding or short-drive distance, sorted by who\'s closest.' },
+    { num: '0¢', title: 'Cost per impression', body: 'You don\'t bid for slots. The map is alphabetical-by-distance, every paid plan gets the same shelf space.' },
     { num: '3×', title: 'Cross-shop rate', body: 'The average Perk+ customer carries stamps at 3+ local shops. Most of those started as a Discover tap, not a flyer.' },
-    { num: '★', title: '"New here" offers', body: 'Pin a first-visit reward to your tile in Discover — "free coffee, your first time" — and watch it convert browsers into walk-ins.' },
+    { num: '★', title: '"New here" offers', body: 'Pin a first-visit reward to your tile in Discover, "free coffee, your first time", and watch it convert browsers into walk-ins.' },
 ];
 
 export default function DiscoverySection() {
@@ -25,7 +25,7 @@ export default function DiscoverySection() {
                 alignItems: 'center',
             }} className="discovery-grid">
 
-                {/* Left — phone mockup placeholder */}
+                {/* Left, phone mockup placeholder */}
                 <RevealOnScroll>
                     <div style={{
                         display: 'flex',
@@ -56,7 +56,7 @@ export default function DiscoverySection() {
                     </div>
                 </RevealOnScroll>
 
-                {/* Right — copy */}
+                {/* Right, copy */}
                 <RevealOnScroll delay={1}>
                     <p className="subline subline-light">Discover · the network effect</p>
                     <h2 className="h1 h1-light" style={{ margin: '12px 0 16px' }}>

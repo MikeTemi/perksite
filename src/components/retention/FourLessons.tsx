@@ -56,7 +56,7 @@ export default function FourLessons() {
                 alignItems: 'start',
             }} className="lessons-grid">
 
-                {/* Left — lessons */}
+                {/* Left, lessons */}
                 <RevealOnScroll>
                     <p className="subline subline-light">
                         Retention 101 · the part nobody teaches
@@ -73,7 +73,7 @@ export default function FourLessons() {
                     }}>
                         A paper card tracks <strong style={{ color: 'var(--white)' }}>visits</strong>.
                         It can't tell you who's drifting, what they buy, or when they last came in.
-                        Perk+ is the same idea — punch, reward, return — but the data underneath
+                        Perk+ is the same idea, punch, reward, return, but the data underneath
                         is the actual product.
                     </p>
 
@@ -108,7 +108,7 @@ export default function FourLessons() {
                     </div>
                 </RevealOnScroll>
 
-                {/* Right — lifecycle chart */}
+                {/* Right, lifecycle chart */}
                 <RevealOnScroll delay={2}>
                     <div style={{
                         background: 'rgba(255,255,255,0.04)',
@@ -208,7 +208,7 @@ export default function FourLessons() {
                         }}>
                             <strong style={{ color: 'var(--amber)' }}>Where Perk+ steps in:</strong>{' '}
                             the moment a regular's gap hits the amber band, an alert lands in your
-                            portal — with a one-tap "we miss you" message ready to send.
+                            portal, with a one-tap "we miss you" message ready to send.
                         </p>
                     </div>
                 </RevealOnScroll>

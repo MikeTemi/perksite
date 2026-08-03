@@ -17,7 +17,7 @@ const stats = [
         num: '68%',
         label: 'Of small-business revenue comes from ',
         bold: 'repeat customers',
-        end: ' — most owners can\'t name them',
+        end: ', most owners can\'t name them',
     },
     {
         num: '15 days',

@@ -4,7 +4,7 @@ import Navbar from '@/components/shared/NavBar';
 import Footer from '@/components/shared/Footer';
 
 export const metadata: Metadata = {
-  title: 'Perk+ — Know your regulars before they slip away',
+  title: 'Perk+, Know your regulars before they slip away',
   description: 'A digital loyalty platform for local businesses.',
 };
 

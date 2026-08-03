@@ -8,15 +8,15 @@ const cards = [
         tagDark: false,
         bg: 'var(--green)',
         title: 'Walk past, scan, you\'re in.',
-        body: 'No app store roulette. The QR on your counter loads the program in 4 seconds — your customer\'s first stamp is already there.',
-        img: '/images/onboard.png',
+        body: 'No app store roulette. The QR on your counter loads the program in 4 seconds, your customer\'s first stamp is already there.',
+        img: '/images/discover-card.jpg',
     },
     {
         tag: '02 · Collect',
         tagDark: false,
         bg: 'var(--cream)',
         title: 'One wallet. Every shop they love.',
-        body: 'Their Perk+ wallet stacks every local card they\'ve ever scanned. You don\'t compete for app real-estate — you live alongside their coffee, their cuts, their pizza.',
+        body: 'Their Perk+ wallet stacks every local card they\'ve ever scanned. You don\'t compete for app real-estate, you live alongside their coffee, their cuts, their pizza.',
         img: '/images/rewards.png',
     },
     {

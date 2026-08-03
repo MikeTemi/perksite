@@ -23,7 +23,7 @@ export default function BrandsTicker() {
         <section className="brands">
             <div className="brands-inner">
                 <p className="brands-label">
-                    Already running on <strong>local counters around Brisbane</strong> — cafés, barbers, bakeries, pubs.
+                    Already running on <strong>local counters around Brisbane</strong>, cafés, barbers, bakeries, pubs.
                 </p>
 
                 <div className="brands-row">

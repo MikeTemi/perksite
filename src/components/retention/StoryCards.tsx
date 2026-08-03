@@ -5,7 +5,7 @@ const stories = [
     {
         img: '/images/social-coffee.jpg',
         meta: 'Café · Brisbane',
-        title: 'Fisherman\'s Daughter — 9 coffees, 1 free.',
+        title: 'Fisherman\'s Daughter, 9 coffees, 1 free.',
         body: 'Old card was a coaster. New card is a database. Same offer, but now they know the names of their best 50 regulars.',
         cite: 'In partnership · live since Q3',
         accent: false,
@@ -13,7 +13,7 @@ const stories = [
     {
         img: '/images/social-barber.jpg',
         meta: 'Barber · West End',
-        title: 'Royal Fades — 5 cuts, the 6th free.',
+        title: 'Royal Fades, 5 cuts, the 6th free.',
         body: 'Higher ticket, longer cycle, harder to track on paper. Perk+ catches the 8-week-no-visit pattern before it becomes a 12-week one.',
         cite: 'Live since Q4',
         accent: true,
@@ -22,7 +22,7 @@ const stories = [
         img: '/images/social-paper.jpg',
         meta: 'The switch',
         title: 'Still using paper? It\'s not telling you anything.',
-        body: 'Paper doesn\'t lose customers — it just doesn\'t tell you they\'re gone. One QR replaces the stamp pad, the binder, the spreadsheet, and the guesswork.',
+        body: 'Paper doesn\'t lose customers, it just doesn\'t tell you they\'re gone. One QR replaces the stamp pad, the binder, the spreadsheet, and the guesswork.',
         cite: '',
         accent: false,
     },

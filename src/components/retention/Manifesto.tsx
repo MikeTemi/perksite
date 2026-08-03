@@ -52,7 +52,7 @@ export default function Manifesto() {
                         <strong style={{ color: 'var(--white)' }}>
                             Paper just couldn't show it to you.
                         </strong>{' '}
-                        Perk+ turns the silent drift into a single tap —{' '}
+                        Perk+ turns the silent drift into a single tap,{' '}
                         <em style={{ color: 'var(--green)' }}>
                             "send all three a we-miss-you."
                         </em>{' '}

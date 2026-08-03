@@ -11,7 +11,7 @@ const callouts = [
     {
         num: '02 · REDEMPTIONS',
         title: 'Rewards walking out the door',
-        body: 'How many earned a free coffee this fortnight — and the win-back lift after each one.',
+        body: 'How many earned a free coffee this fortnight, and the win-back lift after each one.',
     },
     {
         num: '03 · JOINS',
@@ -44,7 +44,7 @@ export default function DashboardBigshot() {
                             </em>
                         </h2>
                         <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#4a6070' }}>
-                            Stamps, redemptions, joiners, total customers — all live, all on every plan.
+                            Stamps, redemptions, joiners, total customers, all live, all on every plan.
                             The Free tier shows the KPI counts; paid plans unlock the chart, filters and activity feed.
                         </p>
                     </div>
