@@ -8,7 +8,6 @@ import { Menu, X } from 'lucide-react';
 const links = [
     { label: 'Home', href: '/' },
     { label: 'How it works', href: '/how-it-works' },
-    { label: 'Retention 101', href: '/retention-101' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Contact', href: '/contact' },
 ];
@@ -51,7 +50,7 @@ export default function NavBar() {
                             href={link.href}
                             className="nav-link"
                             style={{
-                                fontSize: '14px',
+                                fontSize: '16px',
                                 fontWeight: pathname === link.href ? 700 : 500,
                                 color: pathname === link.href ? 'var(--navy)' : 'rgba(0,0,0,0.55)',
                                 transition: 'color 0.15s',
@@ -64,9 +63,9 @@ export default function NavBar() {
             </ul>
 
             {/* CTA Button */}
-            <Link href="/pricing" className="btn btn-sm btn-primary nav-desktop">
+            <a href="https://dashboard.perkplus.com.au/register" className="btn btn-sm btn-primary nav-desktop">
                 Start free
-            </Link>
+            </a>
 
             {/* Hamburger */}
             <button
@@ -105,7 +104,7 @@ export default function NavBar() {
                             href={link.href}
                             onClick={() => setOpen(false)}
                             style={{
-                                fontSize: '16px',
+                                fontSize: '18px',
                                 fontWeight: pathname === link.href ? 700 : 500,
                                 color: pathname === link.href ? 'var(--navy)' : 'rgba(0,0,0,0.7)',
                             }}
@@ -113,14 +112,14 @@ export default function NavBar() {
                             {link.label}
                         </Link>
                     ))}
-                    <Link
-                        href="/pricing"
+                    <a
+                        href="https://dashboard.perkplus.com.au/register"
                         className="btn btn-md btn-primary"
                         onClick={() => setOpen(false)}
                         style={{ alignSelf: 'flex-start', marginTop: '8px' }}
                     >
                         Start free
-                    </Link>
+                    </a>
                 </div>
             )}
         </nav>

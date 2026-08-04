@@ -15,7 +15,7 @@ const plans = [
         note: 'No card · no expiry · forever',
         summary: '1 stamp card, 1 offer, 1 location. View-only analytics, customer profiles.',
         cta: 'Select Free →',
-        ctaHref: '#',
+        ctaHref: 'https://dashboard.perkplus.com.au/register',
         featured: false,
     },
     {
@@ -28,7 +28,7 @@ const plans = [
         note: '30-day free trial · no card',
         summary: '3 offers, analytics summary, basic customer list, communications.',
         cta: 'Select Starter →',
-        ctaHref: '#',
+        ctaHref: 'https://dashboard.perkplus.com.au/register',
         featured: false,
     },
     {
@@ -41,7 +41,7 @@ const plans = [
         note: '30-day free trial · cancel any time',
         summary: '10 stamp cards, 20 offers, 1–3 locations. Full analytics, Push/SMS/Email.',
         cta: 'Select Growth →',
-        ctaHref: '#',
+        ctaHref: 'https://dashboard.perkplus.com.au/register',
         featured: true,
     },
     {
@@ -208,19 +208,35 @@ export default function PricingCards() {
                                         {plan.summary}
                                     </p>
 
-                                    <Link
-                                        href={plan.ctaHref}
-                                        style={{
-                                            fontSize: '14px',
-                                            fontWeight: 700,
-                                            color: plan.featured ? 'var(--green)' : 'var(--navy)',
-                                            textDecoration: 'none',
-                                            transition: 'opacity 0.15s',
-                                        }}
-                                        className="pricing-cta-link"
-                                    >
-                                        {plan.cta}
-                                    </Link>
+                                    {plan.ctaHref.startsWith('http') ? (
+                                        <a
+                                            href={plan.ctaHref}
+                                            style={{
+                                                fontSize: '14px',
+                                                fontWeight: 700,
+                                                color: plan.featured ? 'var(--green)' : 'var(--navy)',
+                                                textDecoration: 'none',
+                                                transition: 'opacity 0.15s',
+                                            }}
+                                            className="pricing-cta-link"
+                                        >
+                                            {plan.cta}
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            href={plan.ctaHref}
+                                            style={{
+                                                fontSize: '14px',
+                                                fontWeight: 700,
+                                                color: plan.featured ? 'var(--green)' : 'var(--navy)',
+                                                textDecoration: 'none',
+                                                transition: 'opacity 0.15s',
+                                            }}
+                                            className="pricing-cta-link"
+                                        >
+                                            {plan.cta}
+                                        </Link>
+                                    )}
                                 </div>
                             </RevealOnScroll>
                         );

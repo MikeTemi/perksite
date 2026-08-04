@@ -13,12 +13,9 @@ export default function FinalCTA() {
                     afternoon. Upgrade only when the numbers tell you to.
                 </p>
                 <div className="cta-btns">
-                    <Link href="/pricing" className="btn btn-lg btn-primary">
+                    <a href="https://dashboard.perkplus.com.au/register" className="btn btn-lg btn-primary">
                         Start free
-                    </Link>
-                    <Link href="/retention-101" className="btn btn-lg btn-ghost btn-ghost-white">
-                        Read Retention 101
-                    </Link>
+                    </a>
                 </div>
                 <p className="cta-note">
                     No credit card · 1 published card · 1 active offer · 4 live KPIs

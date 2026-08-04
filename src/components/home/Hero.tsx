@@ -62,9 +62,9 @@ export default function Hero() {
 
                     {/* CTAs */}
                     <div className="hero-ctas">
-                        <Link href="/pricing" className="btn btn-lg btn-primary">
+                        <a href="https://dashboard.perkplus.com.au/register" className="btn btn-lg btn-primary">
                             Start free
-                        </Link>
+                        </a>
                         <a href="#calc" className="btn-text">
                             See what your regulars are worth
                         </a>

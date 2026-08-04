@@ -9,7 +9,7 @@ const plans = [
         name: 'Free',
         summary: '1 stamp card, 1 offer, 1 location. View-only analytics, customer profiles.',
         cta: 'Select Free',
-        ctaHref: '/pricing',
+        ctaHref: 'https://dashboard.perkplus.com.au/register',
         featured: false,
     },
     {
@@ -19,7 +19,7 @@ const plans = [
         name: 'Starter',
         summary: '3 offers, analytics summary, basic customer list, communications.',
         cta: 'Select Starter',
-        ctaHref: '/pricing',
+        ctaHref: 'https://dashboard.perkplus.com.au/register',
         featured: false,
     },
     {
@@ -29,7 +29,7 @@ const plans = [
         name: 'Growth',
         summary: '10 stamp cards, 20 offers, 1–3 locations. Full analytics, Push/SMS/Email.',
         cta: 'Select Growth',
-        ctaHref: '/pricing',
+        ctaHref: 'https://dashboard.perkplus.com.au/register',
         featured: true,
     },
     {
@@ -63,18 +63,33 @@ export default function PricingSection() {
                 <div className="pt-grid">
                     {plans.map((plan, i) => (
                         <RevealOnScroll key={plan.name} delay={i as 0 | 1 | 2 | 3}>
-                            <Link href={plan.ctaHref} className={`pt-card ${plan.featured ? 'featured' : ''}`}>
-                                <div className="pt-tag">{plan.label}</div>
-                                <div className="pt-price">
-                                    <span className="num" style={plan.price === 'Contact us' ? { fontSize: '22px' } : undefined}>
-                                        {plan.price}
-                                    </span>
-                                    {plan.per && <span className="per">{plan.per}</span>}
-                                </div>
-                                <h3>{plan.name}</h3>
-                                <p>{plan.summary}</p>
-                                <span className="pt-link">{plan.cta}</span>
-                            </Link>
+                            {plan.ctaHref.startsWith('http') ? (
+                                <a href={plan.ctaHref} className={`pt-card ${plan.featured ? 'featured' : ''}`}>
+                                    <div className="pt-tag">{plan.label}</div>
+                                    <div className="pt-price">
+                                        <span className="num" style={plan.price === 'Contact us' ? { fontSize: '22px' } : undefined}>
+                                            {plan.price}
+                                        </span>
+                                        {plan.per && <span className="per">{plan.per}</span>}
+                                    </div>
+                                    <h3>{plan.name}</h3>
+                                    <p>{plan.summary}</p>
+                                    <span className="pt-link">{plan.cta}</span>
+                                </a>
+                            ) : (
+                                <Link href={plan.ctaHref} className={`pt-card ${plan.featured ? 'featured' : ''}`}>
+                                    <div className="pt-tag">{plan.label}</div>
+                                    <div className="pt-price">
+                                        <span className="num" style={plan.price === 'Contact us' ? { fontSize: '22px' } : undefined}>
+                                            {plan.price}
+                                        </span>
+                                        {plan.per && <span className="per">{plan.per}</span>}
+                                    </div>
+                                    <h3>{plan.name}</h3>
+                                    <p>{plan.summary}</p>
+                                    <span className="pt-link">{plan.cta}</span>
+                                </Link>
+                            )}
                         </RevealOnScroll>
                     ))}
                 </div>
