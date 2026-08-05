@@ -9,7 +9,7 @@ const cards = [
         bg: 'var(--green)',
         title: 'Walk past, scan, you\'re in.',
         body: 'No app store roulette. The QR on your counter loads the program in 4 seconds, your customer\'s first stamp is already there.',
-        img: '/images/discover-card.jpg',
+        img: '/images/discover.jpg',
     },
     {
         tag: '02 · Collect',
@@ -17,7 +17,7 @@ const cards = [
         bg: 'var(--cream)',
         title: 'One wallet. Every shop they love.',
         body: 'Their Perk+ wallet stacks every local card they\'ve ever scanned. You don\'t compete for app real-estate, you live alongside their coffee, their cuts, their pizza.',
-        img: '/images/rewards.png',
+        img: '/images/collect.jpg',
     },
     {
         tag: '03 · Redeem',
@@ -25,7 +25,7 @@ const cards = [
         bg: 'var(--navy)',
         title: 'Free coffee, no awkward conversation.',
         body: 'Reward earned, app shows a code, barista taps it on their portal. 4 seconds at the counter. No paper, no "did you sign a card last time?"',
-        img: '/images/onboard.png',
+        img: '/images/redeem.jpg',
     },
 ];
 
@@ -68,10 +68,10 @@ export default function AppShowcase() {
                                 {/* Visual area */}
                                 <div style={{
                                     background: card.bg,
-                                    height: '280px',
+                                    height: '320px',
                                     position: 'relative',
                                     display: 'flex',
-                                    alignItems: 'center',
+                                    alignItems: 'flex-end',
                                     justifyContent: 'center',
                                     overflow: 'hidden',
                                 }}>
@@ -86,22 +86,51 @@ export default function AppShowcase() {
                                         color: card.tagDark ? 'var(--navy)' : 'rgba(255,255,255,0.9)',
                                         padding: '4px 10px',
                                         borderRadius: '999px',
+                                        zIndex: 2,
                                     }}>
                                         {card.tag}
                                     </span>
-                                    <img
-                                        src={card.img}
-                                        alt={card.title}
-                                        style={{
-                                            height: '240px',
-                                            width: 'auto',
-                                            objectFit: 'contain',
-                                            filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.2))',
-                                        }}
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).style.display = 'none';
-                                        }}
-                                    />
+                                    
+                                    {/* Phone Mockup Frame */}
+                                    <div style={{
+                                        width: '180px',
+                                        height: '380px',
+                                        marginBottom: '-80px',
+                                        background: '#fff',
+                                        borderRadius: '24px',
+                                        border: '6px solid #1a1a1a',
+                                        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                        transition: 'transform 0.3s ease',
+                                    }} className="phone-mockup">
+                                        {/* Simple Notch */}
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: '50%',
+                                            transform: 'translateX(-50%)',
+                                            width: '60px',
+                                            height: '14px',
+                                            background: '#1a1a1a',
+                                            borderBottomLeftRadius: '8px',
+                                            borderBottomRightRadius: '8px',
+                                            zIndex: 2,
+                                        }} />
+                                        
+                                        <img
+                                            src={card.img}
+                                            alt={card.title}
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                display: 'block',
+                                            }}
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).style.display = 'none';
+                                            }}
+                                        />
+                                    </div>
                                 </div>
 
                                 {/* Body */}

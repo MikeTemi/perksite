@@ -44,13 +44,24 @@ export default function DiscoverySection() {
                             position: 'relative',
                             overflow: 'hidden',
                         }}>
-                            <img
-                                src="/images/rewards.png"
-                                alt="Perk+ discovery map"
+                            {/* Status Bar Mask to cover screen recording and notifications */}
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '19px',
+                                background: '#ffffff',
+                                zIndex: 2,
+                            }} />
+
+                            <video
+                                src="/videos/discover.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                onError={(e) => {
-                                    (e.target as HTMLImageElement).style.display = 'none';
-                                }}
                             />
                         </div>
                     </div>
