@@ -3,9 +3,8 @@ import RevealOnScroll from '@/components/shared/RevealOnScroll';
 
 export default function Manifesto() {
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: '#061824',
-            padding: '100px 40px',
         }}>
             <div style={{
                 maxWidth: '720px',

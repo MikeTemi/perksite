@@ -323,7 +323,7 @@ export default function Calculator() {
     };
 
     return (
-        <section id="calc" style={{ padding: '100px 40px', background: '#fff' }}>
+        <section id="calc" className="section-padding" style={{ background: '#fff' }}>
             <style dangerouslySetInnerHTML={{ __html: customCSS }} />
             <div style={{
                 maxWidth: 'var(--max-w)', margin: '0 auto',

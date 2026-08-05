@@ -34,9 +34,8 @@ export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: '#fff',
-            padding: '80px 40px',
         }}>
             <div style={{ maxWidth: '720px', margin: '0 auto' }}>
                 <RevealOnScroll>

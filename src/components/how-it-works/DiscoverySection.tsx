@@ -12,9 +12,8 @@ const tiles = [
 
 export default function DiscoverySection() {
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: '#061824',
-            padding: '100px 40px',
         }}>
             <div style={{
                 maxWidth: 'var(--max-w)',

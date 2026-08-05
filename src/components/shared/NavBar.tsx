@@ -77,7 +77,7 @@ export default function NavBar() {
                     background: 'none',
                     border: 'none',
                     cursor: 'pointer',
-                    color: 'var(--white)',
+                    color: 'var(--navy)',
                     padding: '4px',
                 }}
             >

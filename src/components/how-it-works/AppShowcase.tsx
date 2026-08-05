@@ -31,9 +31,8 @@ const cards = [
 
 export default function AppShowcase() {
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: 'var(--navy)',
-            padding: '100px 40px',
         }}>
             <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
 
@@ -68,7 +67,7 @@ export default function AppShowcase() {
                                 {/* Visual area */}
                                 <div style={{
                                     background: card.bg,
-                                    height: '320px',
+                                    height: '350px',
                                     position: 'relative',
                                     display: 'flex',
                                     alignItems: 'flex-end',
@@ -95,7 +94,7 @@ export default function AppShowcase() {
                                     <div style={{
                                         width: '180px',
                                         height: '380px',
-                                        marginBottom: '-80px',
+                                        marginBottom: '-30px',
                                         background: '#fff',
                                         borderRadius: '24px',
                                         border: '6px solid #1a1a1a',

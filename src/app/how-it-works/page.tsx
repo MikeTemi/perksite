@@ -27,7 +27,7 @@ export default function HowItWorksPage() {
                 headline="Ready to see your"
                 headlineEm="real numbers?"
                 body="Open the calculator, drag the sliders, see what loyalty would add to your year. Then start free."
-                primaryLabel="Open the calculator →"
+                primaryLabel="Open the calculator"
                 primaryHref="/#calc"
                 secondaryLabel="See pricing"
                 secondaryHref="/pricing"

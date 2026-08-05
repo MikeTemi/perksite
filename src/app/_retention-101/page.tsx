@@ -24,7 +24,7 @@ export default function Retention101Page() {
                 headline="Know your regulars."
                 headlineEm="Before they slip away."
                 body="Open the calculator and run the maths against your own numbers, then start free."
-                primaryLabel="Open the calculator →"
+                primaryLabel="Open the calculator"
                 primaryHref="/#calc"
                 secondaryLabel="See pricing"
                 secondaryHref="/pricing"

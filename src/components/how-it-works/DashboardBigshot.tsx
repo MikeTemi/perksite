@@ -27,9 +27,8 @@ const callouts = [
 
 export default function DashboardBigshot() {
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: '#f0f4f7',
-            padding: '100px 40px',
         }}>
             <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
 
@@ -74,12 +73,13 @@ export default function DashboardBigshot() {
                     gap: '24px',
                 }} className="callouts-grid">
                     {callouts.map((c, i) => (
-                        <RevealOnScroll key={c.num} delay={i as 0 | 1 | 2 | 3}>
+                        <RevealOnScroll key={c.num} delay={i as 0 | 1 | 2 | 3} className="h-full">
                             <div style={{
                                 background: '#fff',
                                 borderRadius: 'var(--radius-md)',
                                 padding: '24px',
                                 border: '1px solid rgba(0,0,0,0.06)',
+                                height: '100%',
                             }}>
                                 <p style={{
                                     fontSize: '11px',

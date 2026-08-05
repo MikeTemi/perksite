@@ -25,7 +25,7 @@ export default function PricingPage() {
                 headline="Try the math"
                 headlineEm="against your numbers."
                 body="Open the calculator on the homepage, drag the sliders, and see what loyalty would add to your year, before you commit."
-                primaryLabel="Open the calculator →"
+                primaryLabel="Open the calculator"
                 primaryHref="/#calc"
                 secondaryLabel="How it works"
                 secondaryHref="/how-it-works"

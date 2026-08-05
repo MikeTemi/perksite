@@ -40,13 +40,15 @@ export default function RetentionStats() {
                 margin: '0 auto',
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '40px',
             }} className="stats-grid">
                 {stats.map((stat, i) => (
                     <RevealOnScroll key={stat.num} delay={i as 0 | 1 | 2 | 3}>
                         <div style={{
-                            padding: '8px 32px 8px',
-                            borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                            paddingLeft: i === 0 ? '0' : '32px',
+                            padding: '8px 0',
+                            height: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
                         }}>
                             <div style={{
                                 fontSize: 'clamp(24px, 2.5vw, 34px)',

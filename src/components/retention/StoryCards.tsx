@@ -30,9 +30,8 @@ const stories = [
 
 export default function StoryCards() {
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: 'var(--navy)',
-            padding: '100px 40px',
         }}>
             <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
 

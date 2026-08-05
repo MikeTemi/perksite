@@ -43,9 +43,8 @@ const barColors = {
 
 export default function FourLessons() {
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: 'var(--navy)',
-            padding: '100px 40px',
         }}>
             <div style={{
                 maxWidth: 'var(--max-w)',

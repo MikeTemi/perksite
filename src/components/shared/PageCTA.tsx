@@ -25,9 +25,8 @@ export default function PageCTA({
     note,
 }: PageCTAProps) {
     return (
-        <section style={{
+        <section className="section-padding" style={{
             background: 'var(--navy)',
-            padding: '100px 40px',
             textAlign: 'center',
         }}>
             <div style={{ maxWidth: '600px', margin: '0 auto' }}>
@@ -55,18 +54,15 @@ export default function PageCTA({
                         {body}
                     </p>
 
-                    <div style={{
-                        display: 'flex',
-                        gap: '12px',
-                        justifyContent: 'center',
-                        flexWrap: 'wrap',
+                    <div className="cta-buttons" style={{
                         marginBottom: note ? '20px' : '0',
                     }}>
-                        <Link href={primaryHref} className="btn btn-lg btn-primary">
+                        <Link href={primaryHref} className="btn btn-lg btn-primary" style={{ width: '100%' }}>
                             {primaryLabel}
                         </Link>
                         <Link href={secondaryHref} style={{
                             display: 'inline-flex',
+                            justifyContent: 'center',
                             alignItems: 'center',
                             padding: '15px 28px',
                             fontSize: '16px',
@@ -76,6 +72,7 @@ export default function PageCTA({
                             borderRadius: '999px',
                             textDecoration: 'none',
                             transition: 'border-color 0.15s',
+                            width: '100%',
                         }}
                             className="ghost-cta-btn"
                         >
